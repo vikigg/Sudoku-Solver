@@ -1,0 +1,20 @@
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.csprojAssemblyReference.cache
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku_Solver.Form1.resources
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku_Solver.Properties.Resources.resources
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.csproj.GenerateResource.cache
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.csproj.CoreCompileInputs.cache
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\bin\Debug\Sudoku Solver.exe.config
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\bin\Debug\Sudoku Solver.exe
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\bin\Debug\Sudoku Solver.pdb
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.exe
+C:\Users\NOI2020\Desktop\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.pdb
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\bin\Debug\Sudoku Solver.exe.config
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\bin\Debug\Sudoku Solver.exe
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\bin\Debug\Sudoku Solver.pdb
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.csprojAssemblyReference.cache
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku_Solver.Form1.resources
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku_Solver.Properties.Resources.resources
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.csproj.GenerateResource.cache
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.csproj.CoreCompileInputs.cache
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.exe
+C:\Users\NOI2020\Desktop\12 b\Sudoku Solver\Sudoku Solver\obj\Debug\Sudoku Solver.pdb
