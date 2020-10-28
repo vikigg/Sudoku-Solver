@@ -278,9 +278,96 @@ namespace Sudoku_Solver
            label1.BackColor = Color.White;
         }
 
+        private void Solve(int ipos,int jpos)
+        {
+            if(!SudokuIsTrue())
+            {
+                return;
+            }
+            if(ipos==8 && jpos==8 && rows[ipos][jpos].Text != "")
+            {
+                return;
+            }
+            if(rows[ipos][jpos].Text!="")
+            {
+                for(int k=1;k<=9;k++)
+                {
+                    rows[ipos][jpos].Text = k.ToString();
+
+                    if(ipos == 8 && jpos == 8)
+                    {
+                        Solve(ipos, jpos);
+                    }
+                    else if(jpos==8)
+                    {
+                        Solve(ipos+1, 0);
+                    }
+                    else
+                    {
+                        Solve(ipos, jpos + 1);
+                    }          
+                }
+            }
+            else
+            {
+                if (jpos == 8)
+                {
+                    Solve(ipos + 1, 0);
+                }
+                else
+                {
+                    Solve(ipos, jpos + 1);
+                }
+            }
+        }
+
+        private bool SudokuHasEmpty()
+        {
+            for(int i=0;i<9;i++)
+            {
+                for(int j=0;j<9;j++)
+                {
+                    if(rows[i][j].Text=="")
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+            FillArray();
 
+            if(!SudokuIsTrue())
+            {
+                ColorLabel(false);
+                return;
+            }
+
+            for(int i=0;i<9;i++)
+            {
+                for(int j=0;j<9;j++)
+                {
+                    rows[i][j].Hide();
+                }
+            }
+
+            Solve(0, 0);
+
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    rows[i][j].Show();
+                }
+            }
+            
+            if(SudokuIsTrue()&&!SudokuHasEmpty())
+            {
+                ColorLabel(true);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
