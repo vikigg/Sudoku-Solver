@@ -16,7 +16,7 @@ namespace Sudoku_Solver
         {
             InitializeComponent();
         }
-
+        
         private TextBox[][] rows;
         private List<List<TextBox>> columns;
         private List<List<TextBox>> boxes;
@@ -175,7 +175,7 @@ namespace Sudoku_Solver
                 boxes[t].Add(rows[i][7]);
                 boxes[t].Add(rows[i][8]);
             }
-        }
+        } //Gets The Text Boxes
 
         private bool SudokuIsTrue()
         {
@@ -263,49 +263,48 @@ namespace Sudoku_Solver
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private bool SudokuHasEmpty()
         {
-           FillArray();
-
-           for(int i=0;i<9;i++)
-           {
+            for (int i = 0; i < 9; i++)
+            {
                 for (int j = 0; j < 9; j++)
                 {
-                    rows[i][j].Text = "";
+                    if (rows[i][j].Text == "")
+                    {
+                        return false;
+                    }
                 }
-           }
-
-           label1.BackColor = Color.White;
+            }
+            return true;
         }
 
-        private void Solve(int ipos,int jpos)
+        private void Solve(int ipos, int jpos)
         {
-            if(!SudokuIsTrue())
+            if (!SudokuIsTrue())
             {
                 return;
             }
-            if(ipos==8 && jpos==8 && rows[ipos][jpos].Text != "")
+            if (!SudokuHasEmpty())
             {
-                return;
+                ShowBoxes();
+                //return;
+                //throw new Exception();
+                //stop recursion
             }
-            if(rows[ipos][jpos].Text!="")
+            if (rows[ipos][jpos].Text == "")
             {
-                for(int k=1;k<=9;k++)
+                for (int k = 1; k <= 9; k++)
                 {
                     rows[ipos][jpos].Text = k.ToString();
 
-                    if(ipos == 8 && jpos == 8)
+                    if (jpos == 8)
                     {
-                        Solve(ipos, jpos);
-                    }
-                    else if(jpos==8)
-                    {
-                        Solve(ipos+1, 0);
+                        Solve(ipos + 1, 0);
                     }
                     else
                     {
                         Solve(ipos, jpos + 1);
-                    }          
+                    }
                 }
             }
             else
@@ -321,20 +320,42 @@ namespace Sudoku_Solver
             }
         }
 
-        private bool SudokuHasEmpty()
+        private void ShowBoxes()
         {
-            for(int i=0;i<9;i++)
+            for (int i = 0; i < 9; i++)
             {
-                for(int j=0;j<9;j++)
+                for (int j = 0; j < 9; j++)
                 {
-                    if(rows[i][j].Text=="")
-                    {
-                        return false;
-                    }
+                    rows[i][j].Show();
                 }
             }
-            return true;
         }
+
+        private void HideBoxes()
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    rows[i][j].Hide();
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           FillArray();
+
+           for(int i=0;i<9;i++)
+           {
+                for (int j = 0; j < 9; j++)
+                {
+                    rows[i][j].Text = "";
+                }
+           }
+
+           label1.BackColor = Color.White;
+        } //Clear
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -346,29 +367,20 @@ namespace Sudoku_Solver
                 return;
             }
 
-            for(int i=0;i<9;i++)
-            {
-                for(int j=0;j<9;j++)
-                {
-                    rows[i][j].Hide();
-                }
-            }
+            HideBoxes();
 
-            Solve(0, 0);
-
-            for (int i = 0; i < 9; i++)
+            try
             {
-                for (int j = 0; j < 9; j++)
-                {
-                    rows[i][j].Show();
-                }
+                Solve(0, 0);
             }
-            
-            if(SudokuIsTrue()&&!SudokuHasEmpty())
+            catch
             {
-                ColorLabel(true);
+                
+                return;
             }
-        }
+            ShowBoxes();
+            ColorLabel(false);
+        } //Solve
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -382,11 +394,11 @@ namespace Sudoku_Solver
             {
                 ColorLabel(false);
             }
-        }
+        } //Check
 
         private void button3_Click(object sender, EventArgs e)
         {
 
-        }
+        } //New
     }
 }
